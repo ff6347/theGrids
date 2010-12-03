@@ -10,99 +10,69 @@ function main(){
 	var theFolder = Folder.selectDialog ("Choose a FOLDER to Import Images From");
 	var thePath = theFolder;
 	var theFileType = "*.jpg";
-	var theDoc = app.activeDocument;
-	var thePage = theDoc.pages.item(0);
-	
-	var allImages = thePath.getFiles(theFileType);
+
 	
 	
-	
-	for(var i = 0;i < allImages.length; i++){
-		var theBounds =  buildBounds(allImages.length,i,thePage,theDoc);
-		var theRectangle = thePage.rectangles.add({
-			geometricBounds: theBounds//[50,50,100,100]
-		});
+	var theDoc = app.documents.add()	
+	with (theDoc.documentPreferences) {
+		pageWidth = "210mm";
+		pageHeight = "210mm";
+		//BleedBox settings
+		documentBleedBottomOffset = "3mm";
+		documentBleedTopOffset = "3mm";
+		documentBleedInsideOrLeftOffset = "3mm";
+		documentBleedOutsideOrRightOffset = "3mm";
+	}
+		with (theDoc.viewPreferences) {
+		pageWidth = "210mm";
+		pageHeight = "210mm";
+		horizontalMeasurementUnits = MeasurementUnits.MILLIMETERS;
+		verticalMeasurementUnits = MeasurementUnits.MILLIMETERS;
+		rulerOrigin = RulerOrigin.pageOrigin;
 		
-		theRectangle.place(allImages[i]);
-		theRectangle.fit(FitOptions.CONTENT_TO_FRAME);
-	
 	}
 	
-	
-}
+	var theObjStyle  = theDoc.objectStyles.add({name:"style"});
+	theObjStyle.transparencySettings.dropShadowSettings.distance = "2 mm"; 
+	theObjStyle.transparencySettings.dropShadowSettings.mode = ShadowMode.DROP;
 
-function buildBounds( imgLength, index, thePage, theDoc){
+	
+	var thePage = theDoc.pages.item(0);
+	var allImages = thePath.getFiles(theFileType);
 	var theSize = 50;
 	var gutter = 10;
-	var theValues = new Array;
-	var theBoard = thePage;
-	var count = index;
+	var offset = gutter + theSize;
 	var w = theDoc.documentPreferences.pageWidth;
 	var h = theDoc.documentPreferences.pageHeight;
-	var numORects = imgLength;
-	
-	var xOffset;
-	var offset = gutter + theSize;
-	
-	Y1 = ((h/2)-(theSize/2)) - offset;
-	X1 = (w/2)-(theSize/2) - offset;
-	Y2 = Y1 +theSize;
-	X2 = X1 +theSize;
-		
-		for(var i = 0; i < 3; i++){
-			
-			for(var j = 0; j < 3; j++){
-				
-				theValues[index] = [Y1,X1,Y2,X2];
-			}
-		}
 
-/*	
-switch(index){
-		case 0,1,2:
-		
-		Y1 = ((h/2)-(theSize/2)) - offset;
-		X1 = (w/2)-(theSize/2) - offset;
-		Y2 = ((h/2)+(theSize/2)) - offset;
-		X2 = (w/2)+(theSize/2) -offset;
-		break;
-		
-		case 6,7,8:
-		Y1 = ((h/2)-(theSize/2)) + offset;
-		X1 = (w/2)-(theSize/2) + offset;
-		Y2 = ((h/2)+(theSize/2)) + offset;
-		X2 = (w/2)+(theSize/2) + offset;
-		break;
-}
-	switch(index){
-		case 0,3,6:
-		
-		Y1 = ((h/2)-(theSize/2)) - offset;
-		X1 = ((w/2)-(theSize/2)) - offset;
-		Y2 = ((h/2)+(theSize/2)) - offset;
-		X2 = ((w/2)+(theSize/2)) - offset;
-		break;
-		case 2,5,8:
-		Y1 = ((h/2)-(theSize/2)) + offset;
-		X1 = ((w/2)-(theSize/2)) + offset;
-		Y2 = ((h/2)+(theSize/2)) + offset;
-		X2 = ((w/2)+(theSize/2)) + offset;
-		break;
+
+	
+	var Y1  = ((h/2)-(theSize/2)) - offset;
+	var X1 = (w/2)-(theSize/2) - offset;
+	var Y2 = Y1 +theSize;
+	var X2 = X1 +theSize;
+	for(var i = 0;i < allImages.length; i++){
+
+
+			
+			var theRectangle = thePage.rectangles.add({
+				geometricBounds: [Y1,X1,Y2,X2]
+			});
+			theRectangle.place(allImages[i]);
+			theRectangle.fit(FitOptions.CONTENT_TO_FRAME);
+			theRectangle.applyObjectStyle( theDoc.objectStyles.item("[Ohne]"));
+			
+			theRectangle.applyObjectStyle( theObjStyle);
+			
+		 X1 = X1 + offset;
+		if(X1 > w - theSize){
+			Y1 = Y1 + offset;
+			X1 = (w/2)-(theSize/2) - offset;
+		}
+		Y2 = Y1 +theSize;
+		X2 = X1 +theSize;
 	}
-	switch(index){
-		case 4:
-		Y1 = (h/2)-(theSize/2);
-		X1 = (w/2)-(theSize/2);
-		Y2 = (h/2)+(theSize/2);
-		X2 = (w/2)+(theSize/2);
-		break;
-}
-*/
 	
-	
-	
-	
-	return theValues[index];
-//	return [50,50,100,100]
+
 }
 
