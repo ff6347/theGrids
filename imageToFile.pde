@@ -44,6 +44,7 @@ void pictureProcess( ){
 
         for (int index = 0; index < picToScann.pixels.length; index ++){
         values[index] = brightness(picToScann.pixels[index]);
+        println(index);
         reversedValues[index] = map(brightness(picToScann.pixels[index]),0,100,100,0);
 //                println(values[index]);
 
@@ -52,10 +53,10 @@ void pictureProcess( ){
 BufferedWriter bw = null;
 try 
 {
-  FileWriter fw = new FileWriter(dataPath("") + "myFile_20x20.txt", false); // true means: "append"
+  FileWriter fw = new FileWriter(dataPath("") + "myFile_20x20_04.txt", false); // true means: "append"
   bw = new BufferedWriter(fw);
   
-  for (int i = 0; i < values.length; i++){
+  for (int i = 0; i < reversedValues.length; i++){
   bw.write(reversedValues[i]+ ",");
   }
 } 
