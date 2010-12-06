@@ -11,9 +11,10 @@ this makes a text file with the brightness values from an given greyscale image 
 
 in the snippets folder are lots of tiny Javascripts to modify some text.
 
-See project.the-moron.net/jsascii/jsascii.html for some ascii art it uses this javascript function by nihillogic
+See project.the-moron.net/jsascii/jsascii.html for some ascii art
+it uses this javascript function by nihillogic
 http://www.nihilogic.dk/labs/jsascii/
-
+switch to branch jsascii to see some example code.
 
 fabiantheblind Fr  6 Dez 2010
 http://www.the-moron.net
