@@ -9,7 +9,13 @@ the Script theValues.jsx contains the values for the script theTypoGrid.jsx
 in the branch processing is the processing sketch imageToFile.pde
 this makes a text file with the brightness values from an given greyscale image with 20 x 20 pixels. This is the basis for theValues.jsx
 
-fabiantheblind Fr  3 Dez 2010
+in the snippets folder are lots of tiny Javascripts to modify some text.
+
+See project.the-moron.net/jsascii/jsascii.html for some ascii art it uses this javascript function by nihillogic
+http://www.nihilogic.dk/labs/jsascii/
+
+
+fabiantheblind Fr  6 Dez 2010
 http://www.the-moron.net
 
 
