@@ -1,11 +1,13 @@
 // basic javascript snippets for indesign cs 4
 // written by fabiantheblind
 
-// this builds a basic page with some text in a textframe
+// this builds a basic doc with a page. A paragraphstyle a characterstyle
+// and some lorem ipsum text in a textframe with 3 columns in the bounds
 
 main();
 function main (){
 	var theDoc = buildDoc();
+	theStyles(theDoc);
 	var thePage = theDoc.pages.item(0);
 	var theTextFrame = thePage.textFrames.add({
 		geometricBounds:getBounds(theDoc,thePage)
@@ -17,6 +19,25 @@ function main (){
 	theTextFrame.contents = TextFrameContents.placeholderText;
 	
 
+}
+function theStyles(theDoc){
+	parStyle = theDoc.paragraphStyles.add({name:"parStyle"});
+	with(parStyle){		
+
+			
+		leading = 23;
+		pointSize = 13;
+
+	}
+	
+	charStyle = theDoc.characterStyles.add({name:"charStyle"});
+		with(charStyle){		
+			leading = 23;
+			pointSize = 13;
+
+		}
+	
+	
 }
 
 function buildDoc(){
