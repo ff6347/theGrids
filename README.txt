@@ -36,9 +36,6 @@ by him -> https://github.com/stdbrouw
 this needs some heavy formatting right now. lots of replace() and some match()
 The problem with InDesign is that you can't make colors via script without makeing a swatch (as far as i know). Wit this String provided you'll end up making a color per pixel or matching colors with each other.
 
-See also branch jsascii here -> https://github.com/fabiantheblind/theGrids/tree/jsascii
-
-
 fabiantheblind Tue Dec 7 2010
 
 
