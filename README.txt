@@ -38,5 +38,17 @@ The problem with InDesign is that you can't make colors via script without makei
 
 fabiantheblind Tue Dec 7 2010
 
+UPDATE
+
+after some corespondence with the programmer of choice…
+he gave me this code ->
+and explained it like that:
+him: das bild pixel für pixel durchgehen. imagecolorat gibt dir den farbwert für den pixel den mit x und y angibst
+him: in der ersten schleife berechne ich nen $max um auch alle werte zu nutzen
+him: (ersten doppelschleife)
+him: dann nochmal die berechneten pixel durchgehen und anhand des farbwertes nen prozentsatz berechnen mit wert/max, das dann mal der anzahl der möglichen zeichen. das dann wieder runden, und dem string das zeichen was an der stelle im array steckt angeben
+fabiantheblind: okay also je dunkler je "L" iger
+
+
 
 
