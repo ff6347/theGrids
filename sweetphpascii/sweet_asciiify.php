@@ -2,7 +2,7 @@
 function get($key) {
     return isset($_GET, $_GET[$key]) ? $_GET[$key] : null;
 }
-$file         = get('file') ? get('file') : 'the_hand5050.png';
+$file         = get('file') ? get('file') : 'the_hand.png';
 $charstring     = get('chars') ? get('chars') : ' .,:;itf1L';
 $ellify     = get('ellify') ? get('ellify') : false;
 $demo        = get('demo') ? (boolean) get('demo') : false;
@@ -47,7 +47,7 @@ if ($ellify) {
     }
 }
 if ($demo) {
-    echo '<pre>';
+    echo '<pre style="pointsize:3">';
     echo $string;
     echo '</pre>';
 } else {
