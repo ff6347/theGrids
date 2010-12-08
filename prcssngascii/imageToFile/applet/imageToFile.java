@@ -1,3 +1,22 @@
+import processing.core.*; 
+import processing.xml.*; 
+
+import java.applet.*; 
+import java.awt.Dimension; 
+import java.awt.Frame; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.KeyEvent; 
+import java.awt.event.FocusEvent; 
+import java.awt.Image; 
+import java.io.*; 
+import java.net.*; 
+import java.text.*; 
+import java.util.*; 
+import java.util.zip.*; 
+import java.util.regex.*; 
+
+public class imageToFile extends PApplet {
+
 
 /*
 written by fabiantheblind // 4th inc. KSC
@@ -8,14 +27,14 @@ info@the-noron.net
  */
 
 PImage picToScann; 
-color c; // color norm of scanned image
+int c; // color norm of scanned image
 float rc, gc, bc, brghtnss; // value of colorchannels r = red g = green b = blue
 int reSizer = 1; // resize the sketch with this factor WARNING may not be 0
 float [] values;
 float [] reversedValues;
 
 
-void setup(){
+public void setup(){
         colorMode(HSB, 100);
 
 	smooth();
@@ -26,7 +45,7 @@ void setup(){
         reversedValues = new float[(picToScann.width*picToScann.height)];
 }
 
-void draw (){
+public void draw (){
 	rectMode(CENTER);
 //	fill(255,128);
 	noStroke();
@@ -37,7 +56,7 @@ void draw (){
 
 }
 
-void pictureProcess( ){
+public void pictureProcess( ){
 
   
 //	imageMode(CENTER);
@@ -99,9 +118,13 @@ finally
 }
 
 // KEYCODES // KEYCODES // KEYCODES // KEYCODES // KEYCODES // KEYCODES
-void keyReleased() {
+public void keyReleased() {
 	if (key == 's' || key == 'S') {
   
 	}
 }
 // KEYCODES // KEYCODES // KEYCODES // KEYCODES // KEYCODES // KEYCODES
+  static public void main(String args[]) {
+    PApplet.main(new String[] { "--bgcolor=#c0c0c0", "imageToFile" });
+  }
+}

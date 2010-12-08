@@ -1,3 +1,22 @@
+import processing.core.*; 
+import processing.xml.*; 
+
+import java.applet.*; 
+import java.awt.Dimension; 
+import java.awt.Frame; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.KeyEvent; 
+import java.awt.event.FocusEvent; 
+import java.awt.Image; 
+import java.io.*; 
+import java.net.*; 
+import java.text.*; 
+import java.util.*; 
+import java.util.zip.*; 
+import java.util.regex.*; 
+
+public class ascii_art extends PApplet {
+
 /*
 
 
@@ -21,7 +40,7 @@ PFont monospace;
 int[][] aPixels;
 int multiplier;
   String [] theChar = {"i","j","k","l","m","n",".","L",";"};
-void setup() {
+public void setup() {
 
   multiplier = 1; // size of image
 
@@ -43,7 +62,7 @@ a = loadImage("julis.jpg"); // Load the images into the program
 
 }
 
-void draw() {
+public void draw() {
   image(a, 0, 0); // Displays the image from point (0,0)
   background(255);
   
@@ -78,3 +97,7 @@ void draw() {
  noLoop(); 
 }
 
+  static public void main(String args[]) {
+    PApplet.main(new String[] { "--bgcolor=#c0c0c0", "ascii_art" });
+  }
+}

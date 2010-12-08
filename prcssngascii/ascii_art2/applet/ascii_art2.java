@@ -1,6 +1,25 @@
+import processing.core.*; 
+import processing.xml.*; 
+
+import java.applet.*; 
+import java.awt.Dimension; 
+import java.awt.Frame; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.KeyEvent; 
+import java.awt.event.FocusEvent; 
+import java.awt.Image; 
+import java.io.*; 
+import java.net.*; 
+import java.text.*; 
+import java.util.*; 
+import java.util.zip.*; 
+import java.util.regex.*; 
+
+public class ascii_art2 extends PApplet {
+
 /*
 ascii art
-�2004 gabe dunne
+\ufffd2004 gabe dunne
 
 http://quilime.com
 http://media.quilime.com/files/src/processing/ascii_art/index.html
@@ -12,7 +31,7 @@ int[][] aPixels;
 char[] ascii;
 int multiplier;
 
-void setup() {
+public void setup() {
 
   multiplier = 1; // size of image
 
@@ -132,7 +151,7 @@ void setup() {
       fill(aPixels[j/multiplier][i/multiplier]);
       //rect(j,i,10,10);
 
-      text(ascii[int(pixBright/4)], j, i);
+      text(ascii[PApplet.parseInt(pixBright/4)], j, i);
     }
   }
 }
@@ -142,3 +161,7 @@ void setup() {
 //  saveFrame("screenshot-####.ext");
 //}
 
+  static public void main(String args[]) {
+    PApplet.main(new String[] { "--bgcolor=#c0c0c0", "ascii_art2" });
+  }
+}
