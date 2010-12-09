@@ -8,7 +8,7 @@ function main(){
 var theLinks = new Array();
 
 theLinks[0] = "\nhttp://www.hilfdirselbst.ch/";
-theLinks[1] = "http://www.jongware.com/idjshelp.html";
+theLinks[1] = "http://www.adobe.com/products/indesign/scripting/";
 theLinks[2] = "http://www.jongware.com/idjshelp.html";
 theLinks[3] = "http://www.indesignscript.de/";
 theLinks[4] = "http://indesignsecrets.com/";
@@ -20,6 +20,7 @@ theLinks[9] = "https://github.com/fabiantheblind";
 theLinks[10] = "http://www.delicious.com/fabiantheblind/indesign";
 theLinks[11] = "http://www.the-moron.net/blog/?tag=javascript";
 theLinks[12] = "http://lmgtfy.com/?q=indesign+javascript";
+theLinks[13] = "http://www.mediawerk.de/mw/mw_htm_pages/head/InDesign-Menu.htm"
 
 
 // now we can loop thru the array
