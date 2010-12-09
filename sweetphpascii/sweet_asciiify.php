@@ -2,13 +2,15 @@
 function get($key) {
     return isset($_GET, $_GET[$key]) ? $_GET[$key] : null;
 }
-$file         = get('file') ? get('file') : 'the_hand.png';
+$file         = get('file') ? get('file') : 'the_hand5050.png';
 $charstring     = get('chars') ? get('chars') : ' .,:;itf1L';
 $ellify     = get('ellify') ? get('ellify') : false;
 $demo        = get('demo') ? (boolean) get('demo') : false;
 $chars = str_split($charstring);
 
 $im = imagecreatefrompng($file);
+//$im = imagecreatefromjpg($file);
+
 $width = imagesx($im);
 $height = imagesy($im);
 $charCount = count($chars);
